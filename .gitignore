@@ -1,0 +1,22 @@
+# Neovim specific
+.netrwhist
+*~
+*.swp
+*.swo
+
+# Plugin management
+lazy-lock.json
+
+# Language servers and DAP
+.lsp/
+.dap/
+
+# Cache and temp files
+.cache/
+*.log
+
+# macOS
+.DS_Store
+
+# Cosmic Latte theme (separate repo)
+cosmic-latte.nvim/

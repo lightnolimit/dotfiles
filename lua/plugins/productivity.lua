@@ -1,0 +1,178 @@
+return {
+  -- Terminal management
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        size = 20,
+        open_mapping = [[<c-\>]], -- Ctrl+\ to toggle
+        hide_numbers = true,
+        shade_filetypes = {},
+        shade_terminals = true,
+        shading_factor = 2,
+        start_in_insert = true,
+        insert_mappings = true,
+        persist_size = true,
+        direction = "float", -- "vertical" | "horizontal" | "tab" | "float"
+        close_on_exit = true,
+        shell = vim.o.shell,
+        float_opts = {
+          border = "curved",
+          winblend = 0,
+          highlights = {
+            border = "Normal",
+            background = "Normal",
+          },
+        },
+      })
+      
+      -- Additional keymaps
+      vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", { desc = "Toggle terminal" })
+      vim.keymap.set("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { desc = "Horizontal terminal" })
+      vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { desc = "Vertical terminal" })
+      vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { desc = "Floating terminal" })
+      
+      -- Terminal mode escape
+      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+    end,
+  },
+  
+  -- Better diagnostics list
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("trouble").setup({
+        position = "bottom",
+        height = 10,
+        width = 50,
+        icons = true,
+        mode = "workspace_diagnostics",
+        severity = nil,
+        fold_open = "",
+        fold_closed = "",
+        group = true,
+        padding = true,
+        cycle_results = true,
+        action_keys = {
+          close = "q",
+          cancel = "<esc>",
+          refresh = "r",
+          jump = { "<cr>", "<tab>" },
+          open_split = { "<c-x>" },
+          open_vsplit = { "<c-v>" },
+          open_tab = { "<c-t>" },
+          jump_close = { "o" },
+          toggle_mode = "m",
+          switch_severity = "s",
+          toggle_preview = "P",
+          hover = "K",
+          preview = "p",
+          close_folds = { "zM", "zm" },
+          open_folds = { "zR", "zr" },
+          toggle_fold = { "zA", "za" },
+          previous = "k",
+          next = "j"
+        },
+        multiline = true,
+        indent_lines = true,
+        win_config = { border = "single" },
+        auto_open = false,
+        auto_close = false,
+        auto_preview = true,
+        auto_fold = false,
+        auto_jump = { "lsp_definitions" },
+        include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
+        signs = {
+          error = "",
+          warning = "",
+          hint = "",
+          information = "",
+          other = "",
+        },
+        use_diagnostic_signs = false
+      })
+      
+      -- Keymaps
+      vim.keymap.set("n", "<leader>xx", ":Trouble<CR>", { desc = "Toggle Trouble" })
+      vim.keymap.set("n", "<leader>xw", ":Trouble workspace_diagnostics<CR>", { desc = "Workspace diagnostics" })
+      vim.keymap.set("n", "<leader>xd", ":Trouble document_diagnostics<CR>", { desc = "Document diagnostics" })
+      vim.keymap.set("n", "<leader>xl", ":Trouble loclist<CR>", { desc = "Location list" })
+      vim.keymap.set("n", "<leader>xq", ":Trouble quickfix<CR>", { desc = "Quickfix list" })
+      vim.keymap.set("n", "gR", ":Trouble lsp_references<CR>", { desc = "LSP references" })
+    end,
+  },
+  
+  -- Quick file navigation
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup()
+      
+      -- Keymaps
+      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add file to harpoon" })
+      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
+      
+      -- Quick access to first 4 files
+      vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+      vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+      vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+      vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+      
+      -- Navigate between files
+      vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end, { desc = "Previous harpoon file" })
+      vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end, { desc = "Next harpoon file" })
+    end,
+  },
+  
+  -- Surround text objects
+  {
+    "echasnovski/mini.surround",
+    version = "*",
+    config = function()
+      require("mini.surround").setup({
+        -- Add custom surroundings to be used on top of builtin ones. For more
+        -- information with examples, see `:h MiniSurround.config`.
+        custom_surroundings = nil,
+        
+        -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+        highlight_duration = 500,
+        
+        -- Module mappings. Use `''` (empty string) to disable one.
+        mappings = {
+          add = "sa", -- Add surrounding in Normal and Visual modes
+          delete = "sd", -- Delete surrounding
+          find = "sf", -- Find surrounding (to the right)
+          find_left = "sF", -- Find surrounding (to the left)
+          highlight = "sh", -- Highlight surrounding
+          replace = "sr", -- Replace surrounding
+          update_n_lines = "sn", -- Update `n_lines`
+          
+          suffix_last = "l", -- Suffix to search with "prev" method
+          suffix_next = "n", -- Suffix to search with "next" method
+        },
+        
+        -- Number of lines within which surrounding is searched
+        n_lines = 20,
+        
+        -- Whether to respect selection type:
+        -- - Place surroundings on separate lines in linewise mode.
+        -- - Place surroundings on each line in blockwise mode.
+        respect_selection_type = false,
+        
+        -- How to search for surrounding (first inside current line, then inside
+        -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+        -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
+        -- see `:h MiniSurround.config`.
+        search_method = "cover",
+        
+        -- Whether to disable showing non-error feedback
+        silent = false,
+      })
+    end,
+  },
+}
