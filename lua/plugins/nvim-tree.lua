@@ -94,7 +94,7 @@ return {
         ignore_list = {},
       },
       system_open = {
-        cmd = "",
+        cmd = "open", -- macOS command to open with default application
         args = {},
       },
       diagnostics = {

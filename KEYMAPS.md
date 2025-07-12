@@ -19,6 +19,7 @@
 - `<space>e` - Toggle file tree
 - `<space>o` - Focus file tree  
 - `<space>fe` - Find current file in tree
+- `s` - Open file with system default application (in nvim-tree)
 
 ### Telescope
 - `<space>ff` - Find files
