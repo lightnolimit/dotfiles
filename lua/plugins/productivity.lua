@@ -33,8 +33,37 @@ return {
       vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { desc = "Vertical terminal" })
       vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { desc = "Floating terminal" })
       
+      -- Multiple terminals with IDs
+      vim.keymap.set("n", "<leader>t1", ":1ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal 1" })
+      vim.keymap.set("n", "<leader>t2", ":2ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal 2" })
+      vim.keymap.set("n", "<leader>t3", ":3ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal 3" })
+      vim.keymap.set("n", "<leader>t4", ":4ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal 4" })
+      
+      -- Navigate between terminals
+      vim.keymap.set("n", "<leader>tn", function()
+        local terms = require("toggleterm.terminal").get_all()
+        if #terms == 0 then return end
+        
+        local current_id = vim.b.toggle_number or 0
+        local next_id = current_id % #terms + 1
+        vim.cmd(next_id .. "ToggleTerm")
+      end, { desc = "Next terminal" })
+      
+      vim.keymap.set("n", "<leader>tp", function()
+        local terms = require("toggleterm.terminal").get_all()
+        if #terms == 0 then return end
+        
+        local current_id = vim.b.toggle_number or 0
+        local prev_id = current_id > 1 and current_id - 1 or #terms
+        vim.cmd(prev_id .. "ToggleTerm")
+      end, { desc = "Previous terminal" })
+      
+      -- Show all terminals
+      vim.keymap.set("n", "<leader>ta", ":ToggleTermToggleAll<CR>", { desc = "Toggle all terminals" })
+      
       -- Terminal mode escape
       vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+      vim.keymap.set("t", "<C-q>", [[<C-\><C-n>:q<CR>]], { desc = "Close terminal" })
     end,
   },
   

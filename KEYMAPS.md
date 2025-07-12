@@ -4,6 +4,17 @@
 
 ## Custom Keymaps
 
+### File Operations
+- `<space>w` - Save file
+- `<space>q` - Quit
+- `<space>Q` - Quit all
+
+### Buffer Management
+- `<Tab>` - Next buffer
+- `<S-Tab>` - Previous buffer
+- `<space>bd` - Delete buffer (preserves window)
+- `<space>bD` - Force delete buffer
+
 ### File Tree (Nvim-tree)
 - `<space>e` - Toggle file tree
 - `<space>o` - Focus file tree  
@@ -66,7 +77,15 @@
 - `<space>th` - Horizontal terminal
 - `<space>tv` - Vertical terminal
 - `<space>tf` - Floating terminal
+- `<space>t1` - Toggle floating terminal 1
+- `<space>t2` - Toggle floating terminal 2
+- `<space>t3` - Toggle floating terminal 3
+- `<space>t4` - Toggle floating terminal 4
+- `<space>tn` - Next terminal
+- `<space>tp` - Previous terminal
+- `<space>ta` - Toggle all terminals
 - `<Esc>` - Exit terminal mode
+- `<C-q>` - Close terminal (from terminal mode)
 
 ### Diagnostics (Trouble)
 - `<space>xx` - Toggle Trouble
@@ -86,6 +105,34 @@
 - `<C-S-P>` - Previous harpoon file
 - `<C-S-N>` - Next harpoon file
 
+### Enhanced Navigation
+- `[b` - Previous buffer
+- `]b` - Next buffer
+- `[c` - Previous comment
+- `]c` - Next comment
+- `[x` - Previous conflict
+- `]x` - Next conflict
+- `[f` - Previous file in directory
+- `]f` - Next file in directory
+- `[i` - Previous indent level
+- `]i` - Next indent level
+- `[t` - Previous treesitter node
+- `]t` - Next treesitter node
+
+### Jump Anywhere
+- `<space>j` - Jump to any word on screen (mini.jump2d)
+
+### Text Alignment
+- `ga` - Align text (in visual mode)
+- `gA` - Align text with preview
+- Modifiers: `s` (space), `=`, `:`, `,`, `|`
+
+### Line/Text Movement
+- `<Alt-h>` - Move line/selection left
+- `<Alt-j>` - Move line/selection down
+- `<Alt-k>` - Move line/selection up
+- `<Alt-l>` - Move line/selection right
+
 ### Surround Text (Mini.surround)
 - `sa` - Add surrounding (Normal/Visual)
 - `sd` - Delete surrounding
@@ -94,6 +141,27 @@
 - `sF` - Find surrounding (left)
 - `sh` - Highlight surrounding
 - `sn` - Update n_lines
+
+### Enhanced Text Objects (Mini.ai)
+- `ia`/`aa` - Inside/around argument
+- `if`/`af` - Inside/around function call
+- `iF`/`aF` - Inside/around function definition
+- `ic`/`ac` - Inside/around class
+- `i?`/`a?` - Inside/around user prompt
+- `it`/`at` - Inside/around tag
+- `ib`/`ab` - Inside/around brackets
+- `iq`/`aq` - Inside/around quotes
+- `i[`/`a[` - Inside/around square brackets
+- `i(`/`a(` - Inside/around parentheses
+- `i{`/`a{` - Inside/around curly braces
+- Variants: `in`/`an` (next), `il`/`al` (last)
+- Navigation: `g[` (go to left edge), `g]` (go to right edge)
+
+### Indent Text Objects (Mini.indentscope)
+- `ii` - Inside indent scope
+- `ai` - Around indent scope (including borders)
+- `[i` - Go to top of indent scope
+- `]i` - Go to bottom of indent scope
 
 ### Debug Adapter Protocol (DAP)
 - `<space>db` - Toggle breakpoint
@@ -119,6 +187,9 @@
 - `<C-u>/<C-d>` - Page up/down
 - `<C-f>/<C-b>` - Full page forward/back
 - `%` - Jump to matching bracket
+- `<C-d>` - Page down and center cursor
+- `<C-u>` - Page up and center cursor
+- `<C-a>` - Select all
 
 ### Editing
 - `i/a` - Insert before/after cursor
@@ -133,6 +204,7 @@
 - `diw` - Delete inside word
 - `viw` - Select inside word
 - `.` - Repeat last command
+- `J` - Join lines without moving cursor
 
 ### Visual Mode
 - `v` - Character visual mode
@@ -141,12 +213,20 @@
 - `y` - Yank selection
 - `d` - Delete selection
 - `>/<` - Indent/Unindent
+- `<` - Indent left and reselect
+- `>` - Indent right and reselect
+- `p` - Paste without yanking replaced text
+- `<space>s` - Substitute in selection
 
 ### Search
 - `/pattern` - Search forward
 - `?pattern` - Search backward
 - `n/N` - Next/Previous match
 - `*/#` - Search word under cursor forward/back
+- `<Esc>` - Clear search highlight
+- `n` - Next match and center
+- `N` - Previous match and center
+- `<space>S` - Substitute in file
 
 ### Windows
 - `<C-w>` - Cycle to next window
@@ -160,6 +240,10 @@
 - `<C-w>=` - Equal size windows
 - `<C-w>|` - Maximize window width
 - `<C-w>_` - Maximize window height
+- `<C-Up>` - Increase window height
+- `<C-Down>` - Decrease window height
+- `<C-Left>` - Decrease window width
+- `<C-Right>` - Increase window width
 
 ### Buffers
 - `:bnext` or `:bn` - Next buffer
