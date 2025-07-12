@@ -198,48 +198,9 @@ return {
     version = "*",
     config = function()
       require("mini.jump2d").setup({
-        -- Function to be executed after jumping, first argument is selected spot
-        -- (table with <line> and <column> keys), second - table with jump spots.
-        hooks = {
-          before_start = nil,
-          after_jump = nil,
-        },
-        
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
           start_jumping = "<leader>j",
-        },
-        
-        -- Options for jump spots (destinations)
-        spots = {
-          -- Which lines are used for computing spots
-          lines = "visible",
-          
-          -- Which spots to use for computing jump spots
-          spots = "word",
-        },
-        
-        -- Options for visible labels
-        labels = {
-          -- Characters used for labels (in supplied order)
-          alphabet = "abcdefghijklmnopqrstuvwxyz",
-          
-          -- Whether to reuse labels for later (distant) spots
-          reuse_on_overflow = true,
-        },
-        
-        -- Other options
-        allowed_lines = {
-          blank = true, -- Blank line (not sent to spotter function)
-          cursor_before = true, -- Lines before cursor line
-          cursor_at = true, -- Cursor line
-          cursor_after = true, -- Lines after cursor line
-          fold = true, -- Lines inside closed fold
-        },
-        
-        allowed_windows = {
-          current = true,
-          not_current = true,
         },
       })
     end,
