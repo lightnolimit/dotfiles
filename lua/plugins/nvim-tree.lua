@@ -204,16 +204,6 @@ return {
     vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>", { desc = "Focus file tree" })
     vim.keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = "Find file in tree" })
     
-    -- Auto-open nvim-tree on startup
-    vim.api.nvim_create_autocmd("VimEnter", {
-      group = vim.api.nvim_create_augroup("NvimTreeOpen", {clear = true}),
-      callback = function()
-        -- Only open if no files were opened on startup
-        if vim.fn.argc() == 0 then
-          vim.cmd("NvimTreeOpen")
-        end
-      end
-    })
     
     -- Auto-close nvim-tree when it's the last window
     vim.api.nvim_create_autocmd("BufEnter", {
