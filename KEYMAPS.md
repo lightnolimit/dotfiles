@@ -97,7 +97,7 @@
 
 ### Quick Navigation (Harpoon)
 - `<space>a` - Add file to harpoon
-- `<C-e>` - Toggle harpoon menu
+- `<C-me>` - Toggle harpoon menu
 - `<C-h>` - Jump to harpoon file 1
 - `<C-j>` - Jump to harpoon file 2
 - `<C-k>` - Jump to harpoon file 3
@@ -105,63 +105,6 @@
 - `<C-S-P>` - Previous harpoon file
 - `<C-S-N>` - Next harpoon file
 
-### Enhanced Navigation
-- `[b` - Previous buffer
-- `]b` - Next buffer
-- `[c` - Previous comment
-- `]c` - Next comment
-- `[x` - Previous conflict
-- `]x` - Next conflict
-- `[f` - Previous file in directory
-- `]f` - Next file in directory
-- `[i` - Previous indent level
-- `]i` - Next indent level
-- `[t` - Previous treesitter node
-- `]t` - Next treesitter node
-
-### Jump Anywhere
-- `<space>j` - Jump to any word on screen (mini.jump2d)
-
-### Text Alignment
-- `ga` - Align text (in visual mode)
-- `gA` - Align text with preview
-- Modifiers: `s` (space), `=`, `:`, `,`, `|`
-
-### Line/Text Movement
-- `<Alt-h>` - Move line/selection left
-- `<Alt-j>` - Move line/selection down
-- `<Alt-k>` - Move line/selection up
-- `<Alt-l>` - Move line/selection right
-
-### Surround Text (Mini.surround)
-- `sa` - Add surrounding (Normal/Visual)
-- `sd` - Delete surrounding
-- `sr` - Replace surrounding
-- `sf` - Find surrounding (right)
-- `sF` - Find surrounding (left)
-- `sh` - Highlight surrounding
-- `sn` - Update n_lines
-
-### Enhanced Text Objects (Mini.ai)
-- `ia`/`aa` - Inside/around argument
-- `if`/`af` - Inside/around function call
-- `iF`/`aF` - Inside/around function definition
-- `ic`/`ac` - Inside/around class
-- `i?`/`a?` - Inside/around user prompt
-- `it`/`at` - Inside/around tag
-- `ib`/`ab` - Inside/around brackets
-- `iq`/`aq` - Inside/around quotes
-- `i[`/`a[` - Inside/around square brackets
-- `i(`/`a(` - Inside/around parentheses
-- `i{`/`a{` - Inside/around curly braces
-- Variants: `in`/`an` (next), `il`/`al` (last)
-- Navigation: `g[` (go to left edge), `g]` (go to right edge)
-
-### Indent Text Objects (Mini.indentscope)
-- `ii` - Inside indent scope
-- `ai` - Around indent scope (including borders)
-- `[i` - Go to top of indent scope
-- `]i` - Go to bottom of indent scope
 
 ### Debug Adapter Protocol (DAP)
 - `<space>db` - Toggle breakpoint
