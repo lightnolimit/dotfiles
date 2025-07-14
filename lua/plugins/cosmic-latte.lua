@@ -12,7 +12,7 @@ return {
       
       -- Quick hotkeys for theme switching
       vim.keymap.set("n", "<leader>tl", function()
-        vim.cmd("CosmicLatteLight")
+        vim.cmd("CosmicLatte")
         vim.notify("Switched to Light theme (Cosmic Latte)", vim.log.levels.INFO)
       end, { desc = "Switch to light theme" })
       
@@ -24,7 +24,7 @@ return {
       vim.keymap.set("n", "<leader>tc", function()
         -- Toggle between light and dim
         if vim.g.colors_name == "cosmic-latte-dim" then
-          vim.cmd("CosmicLatteLight")
+          vim.cmd("CosmicLatte")
           vim.notify("Switched to Light theme (Cosmic Latte)", vim.log.levels.INFO)
         else
           vim.cmd("CosmicLatteDim")
