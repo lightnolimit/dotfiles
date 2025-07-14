@@ -66,6 +66,7 @@ return {
       search = {
         mode = "exact",
         incremental = false,
+        max_length = false, -- Allow typing full words without flash exiting
         exclude = {
           "notify",
           "noice", 
@@ -143,6 +144,57 @@ return {
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
+  },
+
+  -- Image clipboard functionality
+  {
+    "hakonharnes/img-clip.nvim",
+    event = "VeryLazy",
+    opts = {
+      default = {
+        embed_image_as_base64 = false,
+        prompt_for_file_name = true,
+        drag_and_drop = {
+          insert_mode = true,
+        },
+        use_absolute_path = false,
+      },
+      filetypes = {
+        markdown = {
+          url_encode_path = true,
+          template = "![$CURSOR]($FILE_PATH)",
+          drag_and_drop = {
+            download_images = false,
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from clipboard" },
+    },
+  },
+
+  -- Multiline editing made easy
+  {
+    "mg979/vim-visual-multi",
+    branch = "master",
+    event = "VeryLazy",
+    init = function()
+      vim.g.VM_maps = {
+        ["Find Under"] = "<C-d>",
+        ["Find Subword Under"] = "<C-d>",
+        ["Select Cursor Down"] = "<M-C-Down>",
+        ["Select Cursor Up"] = "<M-C-Up>",
+        ["Add Cursor Down"] = "<C-Down>",
+        ["Add Cursor Up"] = "<C-Up>",
+        ["Add Cursor At Pos"] = "<C-x>",
+        ["Visual Cursors"] = "<C-n>",
+        ["Skip Region"] = "<C-x>",
+        ["Remove Region"] = "<C-q>",
+      }
+      vim.g.VM_mouse_mappings = 1
+      vim.g.VM_highlight_matches = "underline"
+    end,
   },
   
 }

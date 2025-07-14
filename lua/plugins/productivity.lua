@@ -61,6 +61,17 @@ return {
       -- Show all terminals
       vim.keymap.set("n", "<leader>ta", ":ToggleTermToggleAll<CR>", { desc = "Toggle all terminals" })
       
+      -- Kill/close terminal
+      vim.keymap.set("n", "<leader>tk", function()
+        local ok, _ = pcall(vim.cmd, "TermExec cmd='exit'")
+        if not ok then
+          -- If no terminal is open or TermExec fails, try to close the current buffer if it's a terminal
+          if vim.bo.buftype == "terminal" then
+            vim.cmd("bdelete!")
+          end
+        end
+      end, { desc = "Kill/close terminal" })
+      
       -- Terminal mode escape
       vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
       vim.keymap.set("t", "<C-q>", [[<C-\><C-n>:q<CR>]], { desc = "Close terminal" })
@@ -143,18 +154,23 @@ return {
       harpoon:setup()
       
       -- Keymaps
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Add file to harpoon" })
-      vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
+      vim.keymap.set("n", "<leader>h", function() harpoon:list():add() end, { desc = "Add file to harpoon" })
+      vim.keymap.set("n", "<leader>H", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon menu" })
       
-      -- Quick access to first 4 files
-      vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
-      vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
-      vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
-      vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+      -- Quick access to files with Ctrl+number
+      vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+      vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+      vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+      vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+      vim.keymap.set("n", "<C-5>", function() harpoon:list():select(5) end, { desc = "Harpoon file 5" })
+      vim.keymap.set("n", "<C-6>", function() harpoon:list():select(6) end, { desc = "Harpoon file 6" })
+      vim.keymap.set("n", "<C-7>", function() harpoon:list():select(7) end, { desc = "Harpoon file 7" })
+      vim.keymap.set("n", "<C-8>", function() harpoon:list():select(8) end, { desc = "Harpoon file 8" })
+      vim.keymap.set("n", "<C-9>", function() harpoon:list():select(9) end, { desc = "Harpoon file 9" })
       
       -- Navigate between files
-      vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end, { desc = "Previous harpoon file" })
-      vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end, { desc = "Next harpoon file" })
+      vim.keymap.set("n", "[h", function() harpoon:list():prev() end, { desc = "Previous harpoon file" })
+      vim.keymap.set("n", "]h", function() harpoon:list():next() end, { desc = "Next harpoon file" })
     end,
   },
 }

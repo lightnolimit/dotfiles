@@ -120,6 +120,34 @@
 - `<space>de` - Evaluate expression
 - `<space>dr` - Toggle REPL
 
+### Image Clipboard (img-clip.nvim)
+- `<space>p` - Paste image from clipboard (prompts for filename)
+- Drag & drop images directly into files
+- Auto-formats as `![alt](path)` in markdown files
+
+### Multiline Editing (vim-visual-multi)
+- `<C-d>` - Select word under cursor (repeat to select more instances)
+- `<C-n>` - Start visual multi-cursor mode
+- `<C-Up>/<C-Down>` - Add cursor above/below current line
+- `<C-x>` - Add cursor at position or skip current region
+- `<C-q>` - Remove current region from selection
+- Mouse clicks to add cursors (when enabled)
+- `<Esc>` - Exit multi-cursor mode
+
+#### Multiline Editing Workflow:
+1. Position cursor on a word
+2. Press `<C-d>` to select it  
+3. Keep pressing `<C-d>` to select more instances
+4. Type to edit all selected words simultaneously
+5. Press `<Esc>` to exit multi-cursor mode
+
+### Enhanced Navigation (Flash.nvim)
+- `<space>s` - Flash jump (quick navigation to any visible text)
+- `<space>S` - Flash treesitter (jump to code structures)
+- `r` - Remote flash (in operator-pending mode)
+- `R` - Treesitter search (in visual/operator-pending mode)
+- `<C-s>` - Toggle flash search (in command mode)
+
 ## Essential Vim Commands
 
 ### Navigation

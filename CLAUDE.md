@@ -83,5 +83,4 @@ The configuration automatically filters out common build artifacts and dependenc
 - Netrw is disabled in favor of nvim-tree
 - The configuration expects Nerd Fonts for proper icon display
 - DAP is configured for JavaScript/TypeScript debugging with Chrome/Node
-- Harpoon is set up for quick file switching (Ctrl+h/j/k/l for files 1-4)
 - Terminal integration allows both floating and sidebar Claude Code access
