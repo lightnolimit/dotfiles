@@ -18,5 +18,6 @@ lazy-lock.json
 # macOS
 .DS_Store
 
-# Cosmic Latte theme (separate repo)
-cosmic-latte.nvim/
+# Claude configuration
+.claude/
+CLAUDE.md
