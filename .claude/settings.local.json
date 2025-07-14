@@ -10,7 +10,9 @@
       "Bash(nvim:*)",
       "Bash(git checkout:*)",
       "Bash(mkdir:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

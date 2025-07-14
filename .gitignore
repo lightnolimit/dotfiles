@@ -21,6 +21,3 @@ lazy-lock.json
 # Claude configuration
 .claude/
 CLAUDE.md
-
-# Cosmic Latte theme (separate repo)
-cosmic-latte.nvim/
