@@ -40,6 +40,9 @@ return {
       vim.cmd("vertical resize " .. math.floor(vim.o.columns * 0.4))
       -- Open terminal in the new split
       vim.cmd("terminal claude")
+      -- Set buffer options to make it modifiable
+      vim.bo.modifiable = true
+      vim.bo.readonly = false
       -- Enter insert mode
       vim.cmd("startinsert")
     end, { desc = "Claude Code sidebar (right)" })
