@@ -72,8 +72,8 @@ return {
         end
       end, { desc = "Kill/close terminal" })
       
-      -- Terminal mode escape
-      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+      -- Terminal mode escape - use double esc to avoid conflicts with Claude
+      vim.keymap.set("t", "<esc><esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
       vim.keymap.set("t", "<C-q>", [[<C-\><C-n>:q<CR>]], { desc = "Close terminal" })
     end,
   },
