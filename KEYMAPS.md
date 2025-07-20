@@ -1,4 +1,4 @@
-# Neovim Keymaps Reference
+Neovim Keymaps Reference
 
 ## Leader Key: `<space>`
 
@@ -97,14 +97,19 @@
 - `gR` - LSP references (in Trouble)
 
 ### Quick Navigation (Harpoon)
-- `<space>a` - Add file to harpoon
-- `<C-me>` - Toggle harpoon menu
-- `<C-h>` - Jump to harpoon file 1
-- `<C-j>` - Jump to harpoon file 2
-- `<C-k>` - Jump to harpoon file 3
-- `<C-l>` - Jump to harpoon file 4
-- `<C-S-P>` - Previous harpoon file
-- `<C-S-N>` - Next harpoon file
+- `<space>h` - Add file to harpoon
+- `<space>hm` - Toggle harpoon menu
+- `<space>h1` - Jump to harpoon file 1
+- `<space>h2` - Jump to harpoon file 2
+- `<space>h3` - Jump to harpoon file 3
+- `<space>h4` - Jump to harpoon file 4
+- `<space>h5` - Jump to harpoon file 5
+- `<space>h6` - Jump to harpoon file 6
+- `<space>h7` - Jump to harpoon file 7
+- `<space>h8` - Jump to harpoon file 8
+- `<space>h9` - Jump to harpoon file 9
+- `[h` - Previous harpoon file
+- `]h` - Next harpoon file
 
 
 ### Debug Adapter Protocol (DAP)
@@ -166,7 +171,7 @@
 ### Editing
 - `i/a` - Insert before/after cursor
 - `I/A` - Insert at start/end of line
-- `o/O` - New line below/above
+- `o/O` - New line below/above/
 - `x/X` - Delete char forward/backward
 - `dd` - Delete line
 - `yy` - Yank (copy) line
